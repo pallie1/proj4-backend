@@ -25,10 +25,11 @@ User.create([
 ])
 
 # Review.create([
-#     {shop_id: 1, user_id: 1, img: 'https://i.imgur.com/pfqCkB3.png', rate: 4.8, content: 'Fun flavors and location, not very hipster though.'},
-#     {shop_id: 2, user_id: 2, img: 'https://i.imgur.com/zS5W0xc.png', rate: 7.2, content: 'Solid coffee, great location, not much seating.'},
-#     {shop_id: 3, user_id: 3, img: 'https://i.imgur.com/rZAslxW.png', rate: 8.5, content: 'Last coffee for the weekday. Trident coffee. where i hung out in highschool, but have been coming to since I couldn’t see over the counter. It’s inside a Super rad alt. Bookstore. Campos coffee. Milk. Solid 8.5.'},
-#     {shop_id: 4, user_id: 3, img: 'https://i.imgur.com/LUG02ci.png', rate: 8, content: 'Brewing market in my hometown of Boulder, CO. An amazing collection of coffee making machines, chalk menu, hippy deadlock barista (the boulder equivalent of beanies not touching ears). Espresso machine was “out of whack” was the excuse, coffee was ok. Though, I got to enjoy my coffee in the warm Colorado sun in the same spot my dad and I used to sip Sunday coffees from, so all in all 8/10.'},
-#     {shop_id: 5, user_id: 4, img: 'https://i.imgur.com/PdU31zl.png', rate: 9.7, content: 'Throwing another 9.7 out there because this coffee is darn good. Blackbird in Cairns, far north QLD. This is genuine, unrefined hipster and I love it. Latte art that isn’t compromising on creaminess and strength is hard to come by. Mural game is also strong here'},
-#     {shop_id: 3, user_id: 3, img: '', rate: , content: ''}
+#     {shop_id: 12, user_id: 4, img: 'https://i.imgur.com/pfqCkB3.png', rate: 4.8, content: 'Fun flavors and location, not very hipster though.'},
+#     {shop_id: 13, user_id: 5, img: 'https://i.imgur.com/zS5W0xc.png', rate: 7.2, content: 'Solid coffee, great location, not much seating.'},
+#     {shop_id: 14, user_id: 6, img: 'https://i.imgur.com/rZAslxW.png', rate: 8.5, content: "Last coffee for the weekday. Trident coffee. where i hung out in highschool, but have been coming to since I couldn’t see over the counter. It’s inside a Super rad alt. Bookstore. Campos coffee. Milk. Solid 8.5."},
+#     {shop_id: 15, user_id: 6, img: 'https://i.imgur.com/LUG02ci.png', rate: 8, content: "Brewing market in my hometown of Boulder, CO. An amazing collection of coffee making machines, chalk menu, hippy deadlock barista (the boulder equivalent of beanies not touching ears). Espresso machine was 'out of whack' was the excuse, coffee was ok. Though, I got to enjoy my coffee in the warm Colorado sun in the same spot my dad and I used to sip Sunday coffees from, so all in all 8/10."},
+#     {shop_id: 16, user_id: 7, img: 'https://i.imgur.com/PdU31zl.png', rate: 9.7, content: "Throwing another 9.7 out there because this coffee is darn good. Blackbird in Cairns, far north QLD. This is genuine, unrefined hipster and I love it. Latte art that isn’t compromising on creaminess and strength is hard to come by. Mural game is also strong here"}
 # ])
+
+#     {shop_id: 3, user_id: 3, img: '', rate: , content: ''}
