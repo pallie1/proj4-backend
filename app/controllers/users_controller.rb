@@ -10,8 +10,16 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    # render json: User.find(params[:username]).to_json(include: :shops)
     render json: @user.to_json(include: :shops)
   end
+
+  # # GET user by username
+  # def show_user
+  #   # render json: User.find_by(params[username: :username]).to_json(include: :shops)
+  #   specific_user = User.find_by(username: params[:username])
+  #   render json: specific_user
+  # end
 
   # POST /users
   def create
@@ -48,4 +56,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :password)
     end
+
+    # def email_params
+    #   params.require(:username)
+    # end
+
+    # def show_user
+    #   render json: User.find_by(username: user_params).to_json(include: :shops)
+    # end
 end

@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = Review.all
+    @reviews = Review.order(id: :desc)
 
     render json: @reviews.to_json(include: [:shop, :user])
   end
