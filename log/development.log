@@ -8421,3 +8421,616 @@ Processing by ShopsController#index as HTML
 Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 26.6ms | Allocations: 8790)
 
 
+Started GET "/users/1" for ::1 at 2020-08-15 12:17:23 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:52:in `set_user'
+  [1m[36mShop Load (1.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" INNER JOIN "reviews" ON "shops"."id" = "reviews"."shop_id" WHERE "reviews"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `show'
+Completed 200 OK in 114ms (Views: 0.2ms | ActiveRecord: 41.8ms | Allocations: 21243)
+
+
+Started GET "/reviews" for ::1 at 2020-08-15 12:17:23 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY "reviews"."id" DESC[0m
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mShop Load (0.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mUser Load (23.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE Shop Load (0.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+Completed 200 OK in 86ms (Views: 0.1ms | ActiveRecord: 54.4ms | Allocations: 18454)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:17:27 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (25.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 48ms (Views: 0.1ms | ActiveRecord: 29.5ms | Allocations: 9213)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:18:08 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (36.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 64ms (Views: 0.2ms | ActiveRecord: 39.8ms | Allocations: 8810)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:18:19 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (25.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 52ms (Views: 0.2ms | ActiveRecord: 29.3ms | Allocations: 8810)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:21:43 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (4.8ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (28.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (50.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 148ms (Views: 0.2ms | ActiveRecord: 96.5ms | Allocations: 8815)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:22:33 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.8ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (14.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 38ms (Views: 0.1ms | ActiveRecord: 18.6ms | Allocations: 8790)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:23:24 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (2.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (28.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 33.9ms | Allocations: 8790)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:23:36 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (1.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (30.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 86ms (Views: 0.2ms | ActiveRecord: 63.9ms | Allocations: 8790)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:29:41 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (2.8ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 0.2ms | ActiveRecord: 7.8ms | Allocations: 8877)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:38:18 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (2.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (22.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (13.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 266ms (Views: 0.5ms | ActiveRecord: 55.0ms | Allocations: 8880)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:39:19 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (26.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 91ms (Views: 0.2ms | ActiveRecord: 58.4ms | Allocations: 8790)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:42:54 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (36.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (33.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (24.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 160ms (Views: 1.2ms | ActiveRecord: 98.5ms | Allocations: 8790)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 12:43:11 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (48.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (75.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (27.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 237ms (Views: 0.2ms | ActiveRecord: 195.7ms | Allocations: 8791)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 13:50:59 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (8.5ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (80.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 267ms (Views: 0.4ms | ActiveRecord: 98.8ms | Allocations: 8880)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 13:52:25 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (20.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (20.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (47.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 192ms (Views: 0.7ms | ActiveRecord: 115.8ms | Allocations: 8791)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 13:54:53 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (38.3ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (141.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (35.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 265ms (Views: 0.2ms | ActiveRecord: 233.4ms | Allocations: 8793)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 13:57:12 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (0.9ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (22.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 118ms (Views: 0.2ms | ActiveRecord: 57.8ms | Allocations: 8790)
+
+
+  [1m[35m (41.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Load (3.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  [1m[35m (17.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (55.9ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (27.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mShop Load (1.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (28.2ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/shops" for ::1 at 2020-08-15 14:16:26 -0400
+  [1m[35m (27.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (33.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (20.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 287ms (Views: 0.2ms | ActiveRecord: 178.4ms | Allocations: 27182)
+
+
+  [1m[36mShop Load (2.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (30.1ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (9.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mReview Destroy (29.4ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 1]]
+  [1m[36mReview Destroy (1.0ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 3]]
+  [1m[36mReview Destroy (0.5ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 4]]
+  [1m[36mReview Destroy (0.6ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 5]]
+  [1m[36mReview Destroy (0.8ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 6]]
+  [1m[36mUser Destroy (3.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mReview Destroy (0.8ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = $1[0m  [["id", 2]]
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2020-08-15 14:21:08 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (15.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 20.4ms | Allocations: 2522)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 14:21:11 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (1.8ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 1]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 2]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 3]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 4]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 5]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 6]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 165ms (Views: 0.1ms | ActiveRecord: 110.2ms | Allocations: 17643)
+
+
+Started GET "/reviews" for ::1 at 2020-08-15 14:21:17 -0400
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (5.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY "reviews"."id" DESC[0m
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 5.8ms | Allocations: 791)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mShop Load (1.0ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (30.9ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (1.2ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (1.1ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (2.3ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 4]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (0.9ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (1.1ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/reviews" for ::1 at 2020-08-15 14:22:35 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (2.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" ORDER BY "reviews"."id" DESC[0m
+  ↳ app/controllers/reviews_controller.rb:8:in `index'
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 14.4ms | Allocations: 2637)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 14:22:38 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (29.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 48ms (Views: 0.1ms | ActiveRecord: 35.7ms | Allocations: 2873)
+
+
+Started GET "/users" for ::1 at 2020-08-15 14:22:49 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 38ms (Views: 0.3ms | ActiveRecord: 31.6ms | Allocations: 2431)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mShop Load (1.1ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "2460 Washtenaw Ave"], ["LIMIT", 1]]
+  [1m[36mShop Create (32.9ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Bearclaw Coffee"], ["address", "2460 Washtenaw Ave"], ["city", "Ann Arbor"], ["state", "MI"], ["postalcode", "60610"], ["country", "USA"], ["created_at", "2020-08-15 18:23:03.107529"], ["updated_at", "2020-08-15 18:23:03.107529"], ["coords", "-83.712230 42.259650"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "1233 N Wells"], ["LIMIT", 1]]
+  [1m[36mShop Create (0.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Intelligentsia Coffee"], ["address", "1233 N Wells"], ["city", "Chicago"], ["state", "IL"], ["postalcode", "48104"], ["country", "USA"], ["created_at", "2020-08-15 18:23:03.151363"], ["updated_at", "2020-08-15 18:23:03.151363"], ["coords", "-87.634360 41.904750"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (25.7ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "940 Pearl St"], ["LIMIT", 1]]
+  [1m[36mShop Create (2.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Trident"], ["address", "940 Pearl St"], ["city", "Boulder"], ["state", "CO"], ["postalcode", "80302"], ["country", "USA"], ["created_at", "2020-08-15 18:23:03.186944"], ["updated_at", "2020-08-15 18:23:03.186944"], ["coords", "-105.282890 40.016950"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "2610 Baseline Rd"], ["LIMIT", 1]]
+  [1m[36mShop Create (2.0ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Brewing Market"], ["address", "2610 Baseline Rd"], ["city", "Boulder"], ["state", "CO"], ["postalcode", "80302"], ["country", "USA"], ["created_at", "2020-08-15 18:23:03.201376"], ["updated_at", "2020-08-15 18:23:03.201376"], ["coords", "-83.689472 42.287104"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "205 Newell St"], ["LIMIT", 1]]
+  [1m[36mShop Create (1.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Blackbird"], ["address", "205 Newell St"], ["city", "Cairns"], ["state", "QLD"], ["postalcode", "4870"], ["country", "AU"], ["created_at", "2020-08-15 18:23:03.241841"], ["updated_at", "2020-08-15 18:23:03.241841"], ["coords", "145.750412 -16.938242"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "pallie"], ["LIMIT", 1]]
+  [1m[35m (6.5ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/users" for ::1 at 2020-08-15 14:24:01 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 11.4ms | Allocations: 3024)
+
+
+Started GET "/shops" for ::1 at 2020-08-15 14:24:04 -0400
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (25.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 7]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 8]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (40.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 9]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 10]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (26.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 11]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 232ms (Views: 0.1ms | ActiveRecord: 171.3ms | Allocations: 20093)
+
+
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mShop Load (0.8ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  [1m[35m (19.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (2.3ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 7]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (0.9ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (0.7ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (3.1ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (26.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Destroy (1.3ms)[0m  [1m[31mDELETE FROM "shops" WHERE "shops"."id" = $1[0m  [["id", 11]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "2460 Washtenaw Ave"], ["LIMIT", 1]]
+  [1m[36mShop Create (1.1ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Bearclaw Coffee"], ["address", "2460 Washtenaw Ave"], ["city", "Ann Arbor"], ["state", "MI"], ["postalcode", "60610"], ["country", "USA"], ["created_at", "2020-08-15 18:25:01.245242"], ["updated_at", "2020-08-15 18:25:01.245242"], ["coords", "-83.712230 42.259650"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (26.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "1233 N Wells"], ["LIMIT", 1]]
+  [1m[36mShop Create (0.7ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Intelligentsia Coffee"], ["address", "1233 N Wells"], ["city", "Chicago"], ["state", "IL"], ["postalcode", "48104"], ["country", "USA"], ["created_at", "2020-08-15 18:25:01.286110"], ["updated_at", "2020-08-15 18:25:01.286110"], ["coords", "-87.634360 41.904750"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "940 Pearl St"], ["LIMIT", 1]]
+  [1m[36mShop Create (1.2ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Trident"], ["address", "940 Pearl St"], ["city", "Boulder"], ["state", "CO"], ["postalcode", "80302"], ["country", "USA"], ["created_at", "2020-08-15 18:25:01.294286"], ["updated_at", "2020-08-15 18:25:01.294286"], ["coords", "-105.282890 40.016950"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "2610 Baseline Rd"], ["LIMIT", 1]]
+  [1m[36mShop Create (26.6ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Brewing Market"], ["address", "2610 Baseline Rd"], ["city", "Boulder"], ["state", "CO"], ["postalcode", "80302"], ["country", "USA"], ["created_at", "2020-08-15 18:25:01.302344"], ["updated_at", "2020-08-15 18:25:01.302344"], ["coords", "-83.689472 42.287104"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShop Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "shops" WHERE "shops"."address" = $1 LIMIT $2[0m  [["address", "205 Newell St"], ["LIMIT", 1]]
+  [1m[36mShop Create (1.8ms)[0m  [1m[32mINSERT INTO "shops" ("name", "address", "city", "state", "postalcode", "country", "created_at", "updated_at", "coords") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Blackbird"], ["address", "205 Newell St"], ["city", "Cairns"], ["state", "QLD"], ["postalcode", "4870"], ["country", "AU"], ["created_at", "2020-08-15 18:25:01.338152"], ["updated_at", "2020-08-15 18:25:01.338152"], ["coords", "145.750412 -16.938242"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (26.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "pallie"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "pallie"], ["password", "password"], ["created_at", "2020-08-15 18:25:01.382183"], ["updated_at", "2020-08-15 18:25:01.382183"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ryan"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "ryan"], ["password", "password"], ["created_at", "2020-08-15 18:25:01.393340"], ["updated_at", "2020-08-15 18:25:01.393340"]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "lizzie"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "lizzie"], ["password", "password"], ["created_at", "2020-08-15 18:25:01.437804"], ["updated_at", "2020-08-15 18:25:01.437804"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "millie"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "millie"], ["password", "password"], ["created_at", "2020-08-15 18:25:01.446340"], ["updated_at", "2020-08-15 18:25:01.446340"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/shops" for ::1 at 2020-08-15 14:25:12 -0400
+  [1m[35m (30.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ShopsController#index as HTML
+  [1m[36mShop Load (18.7ms)[0m  [1m[34mSELECT "shops".* FROM "shops"[0m
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 12]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 13]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 14]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 15]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "reviews" ON "users"."id" = "reviews"."user_id" WHERE "reviews"."shop_id" = $1[0m  [["shop_id", 16]]
+  ↳ app/controllers/shops_controller.rb:8:in `index'
+Completed 200 OK in 190ms (Views: 0.5ms | ActiveRecord: 122.0ms | Allocations: 22383)
+
+
+Started GET "/users" for ::1 at 2020-08-15 14:25:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mShop Load (1.4ms)[0m  [1m[34mSELECT "shops".* FROM "shops" INNER JOIN "reviews" ON "shops"."id" = "reviews"."shop_id" WHERE "reviews"."user_id" = $1[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mShop Load (2.2ms)[0m  [1m[34mSELECT "shops".* FROM "shops" INNER JOIN "reviews" ON "shops"."id" = "reviews"."shop_id" WHERE "reviews"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mShop Load (29.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" INNER JOIN "reviews" ON "shops"."id" = "reviews"."shop_id" WHERE "reviews"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT "shops".* FROM "shops" INNER JOIN "reviews" ON "shops"."id" = "reviews"."shop_id" WHERE "reviews"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 98ms (Views: 0.2ms | ActiveRecord: 45.6ms | Allocations: 8783)
+
+

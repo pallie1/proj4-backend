@@ -6,16 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Shop.destroy_all
 User.destroy_all
-Review.destroy_all
+Shop.destroy_all
 
 Shop.create([
-    {name: 'Bearclaw Coffee', address: '2460 Washtenaw Ave', city: 'Ann Arbor', state: 'MI', postalcode: '60610', country: 'USA'},
-    {name: 'Intelligentsia Coffee', address: '1233 N Wells', city: 'Chicago', state: 'IL', postalcode: '48104', country: 'USA'},
-    # {name: 'Trident', address: '940 Pearl St', city: 'Boulder', state: 'CO', postalcode: '80302', country: 'USA'},
-    {name: 'Brewing Market', address: '2610 Baseline Rd', city: 'Boulder', state: 'CO', postalcode: '80302', country: 'USA'},
-    {name: 'Blackbird', address: '205 Newell St', city: 'Cairns', state: 'QLD', postalcode: '4870', country: 'AU'}
+    {name: 'Bearclaw Coffee', address: '2460 Washtenaw Ave', city: 'Ann Arbor', state: 'MI', postalcode: '60610', country: 'USA', coords: '-83.712230 42.259650'},
+    {name: 'Intelligentsia Coffee', address: '1233 N Wells', city: 'Chicago', state: 'IL', postalcode: '48104', country: 'USA', coords: '-87.634360 41.904750'},
+    {name: 'Trident', address: '940 Pearl St', city: 'Boulder', state: 'CO', postalcode: '80302', country: 'USA', coords: '-105.282890 40.016950'},
+    {name: 'Brewing Market', address: '2610 Baseline Rd', city: 'Boulder', state: 'CO', postalcode: '80302', country: 'USA', coords: '-83.689472 42.287104'},
+    {name: 'Blackbird', address: '205 Newell St', city: 'Cairns', state: 'QLD', postalcode: '4870', country: 'AU', coords: '145.750412 -16.938242'}
 ])
 
 User.create([
