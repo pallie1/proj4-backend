@@ -32,4 +32,4 @@ User.create([
 #     {shop_id: 4, user_id: 3, img: 'https://i.imgur.com/LUG02ci.png', rate: 8, content: 'Brewing market in my hometown of Boulder, CO. An amazing collection of coffee making machines, chalk menu, hippy deadlock barista (the boulder equivalent of beanies not touching ears). Espresso machine was “out of whack” was the excuse, coffee was ok. Though, I got to enjoy my coffee in the warm Colorado sun in the same spot my dad and I used to sip Sunday coffees from, so all in all 8/10.'},
 #     {shop_id: 5, user_id: 4, img: 'https://i.imgur.com/PdU31zl.png', rate: 9.7, content: 'Throwing another 9.7 out there because this coffee is darn good. Blackbird in Cairns, far north QLD. This is genuine, unrefined hipster and I love it. Latte art that isn’t compromising on creaminess and strength is hard to come by. Mural game is also strong here'},
 #     {shop_id: 3, user_id: 3, img: '', rate: , content: ''}
-])
+# ])
