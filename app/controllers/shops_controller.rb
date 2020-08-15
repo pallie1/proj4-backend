@@ -5,12 +5,12 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.all
 
-    render json: @shops.to_json(include: :users)
+    render json: @shops.to_json(include: :reviews)
   end
 
   # GET /shops/1
   def show
-    render json: @shop.to_json(include: :users)
+    render json: @shop.to_json(include: :reviews)
   end
 
   # POST /shops
