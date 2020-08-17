@@ -10,7 +10,9 @@ class ShopsController < ApplicationController
 
   # GET /shops/1
   def show
-    render json: @shop.to_json(include: :reviews)
+    # @user = Review.find(username: :user)
+    # render json: [@user, @shop.to_json(include: :reviews, :users)]
+    render json:  @shop.to_json(include: [:reviews, :users])
   end
 
   # POST /shops

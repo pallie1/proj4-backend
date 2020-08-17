@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users.to_json(include: :shops)
+    render json: @users.to_json(include: :reviews)
   end
 
   # GET /users/1
   def show
     # render json: User.find(params[:username]).to_json(include: :shops)
-    render json: @user.to_json(include: :shops)
+    render json: @user.to_json(include: [:reviews, :shops])
   end
 
   # # GET user by username

@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
+
 Shop.destroy_all
+User.destroy_all
 
 Shop.create([
     {name: 'Bearclaw Coffee', address: '2460 Washtenaw Ave', city: 'Ann Arbor', state: 'MI', postalcode: '60610', country: 'USA', coords: '-83.712230 42.259650'},
