@@ -91,7 +91,7 @@ end
     end
 
     def create_token(id, username)
-      SECRET_KEY_BASE.encode(payload(id, username), ENV['SECRET_KEY_BASE'], 'HS256')
+      JWT.encode(payload(id, username), ENV['JWT_SECRET'], 'HS256')
     end
 
     # def email_params
