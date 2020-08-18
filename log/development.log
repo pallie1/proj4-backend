@@ -28413,3 +28413,58 @@ Processing by ReviewsController#index as HTML
 Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 4.1ms | Allocations: 2859)
 
 
+Started GET "/" for ::1 at 2020-08-18 14:43:37 -0400
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/users" for ::1 at 2020-08-18 14:43:41 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (1.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (21.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (1.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 151ms (Views: 0.4ms | ActiveRecord: 87.3ms | Allocations: 18256)
+
+
+Started POST "/users/" for ::1 at 2020-08-18 14:43:54 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"wallie", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:45:in `create'
+  [1m[36mUser Exists? (4.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "wallie"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+  [1m[36mUser Create (35.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "wallie"], ["password_digest", "$2a$12$.1pNZIRPyG2gLVvbw9K20O9cq3QPgmnQSy8uJwMjTJObm6/T0v9cq"], ["created_at", "2020-08-18 18:43:54.907577"], ["updated_at", "2020-08-18 18:43:54.907577"]]
+  ↳ app/controllers/users_controller.rb:45:in `create'
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:45:in `create'
+Completed 201 Created in 415ms (Views: 1.9ms | ActiveRecord: 43.8ms | Allocations: 4335)
+
+
+Started GET "/users" for ::1 at 2020-08-18 14:44:02 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 12]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 13]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 14]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = $1[0m  [["user_id", 15]]
+  ↳ app/controllers/users_controller.rb:10:in `index'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 3.1ms | Allocations: 4751)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["username", "test"], ["password_digest", "$2a$12$4I1hb9by6FPKO4e07PyOiOL5i53JhVcCMfBJSzxL8C7z/78Y2pIg."], ["created_at", "2020-08-18 18:45:02.601381"], ["updated_at", "2020-08-18 18:45:02.601381"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m

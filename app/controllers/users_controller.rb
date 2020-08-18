@@ -78,7 +78,7 @@ end
       {
         exp: (Time.now + 60.minutes).to_i,
         iat: Time.now.to_i,
-        iss: ENV['JWT_ISSUER'],
+        iss: ENV['SECRET_KEY_BASE'],
         user: {
           id: id,
           username: username
@@ -91,7 +91,7 @@ end
     end
 
     def create_token(id, username)
-      JWT.encode(payload(id, username), ENV['JWT_SECRET'], 'HS256')
+      SECRET_KEY_BASE.encode(payload(id, username), ENV['SECRET_KEY_BASE'], 'HS256')
     end
 
     # def email_params
