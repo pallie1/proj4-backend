@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
     end                                                                              
                                                                                      
     def decode_token(token_input)
-        SECRET_KEY_BASE.decode(token_input, ENV["SECRET_KEY_BASE"], true, { :algorithm => 'HS256'})
+        JWT.decode(token_input, ENV["SECRET_KEY_BASE"], true, { :algorithm => 'HS256'})
     rescue
         render json: {status: 401, message: "Unauthorized decode_token"}
     end
