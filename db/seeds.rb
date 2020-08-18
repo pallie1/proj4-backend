@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Review.destroy_all
 Shop.destroy_all
 User.destroy_all
 
@@ -18,12 +18,7 @@ Shop.create([
     {name: 'Blackbird', address: '205 Newell St', city: 'Cairns', state: 'QLD', postalcode: '4870', country: 'AU', coords: '145.750412 -16.938242'}
 ])
 
-User.create([
-    {username: 'pallie', password: 'password'},
-    {username: 'ryan', password: 'password'},
-    {username: 'lizzie', password: 'password'},
-    {username: 'millie', password: 'password'}
-])
+User.create([{username: 'pallie', password: 'password'},{username: 'ryan', password: 'password'},{username: 'lizzie', password: 'password'},{username: 'millie', password: 'password'}])
 
 # Review.create([
 #     {shop_id: 12, user_id: 4, img: 'https://i.imgur.com/pfqCkB3.png', rate: 4.8, content: 'Fun flavors and location, not very hipster though.'},
