@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   resources :reviews
   resources :shops
 
-  resources :users
+  # resources :users
+
+  resources :users do                                                            
+    collection do                                                                
+      post '/login', to: 'users#login'                                            
+    end                                                                          
+  end  
 
   # resource :users do
   #   collection do
